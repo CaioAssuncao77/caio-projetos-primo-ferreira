@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+        <nav class="navbar">
+            <h1>TIU</h1>
+
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="#">Contatos</a>
+            </div>
+        </nav>
+    </header>
+
+  <div class="container">
+  <div class="card">
+
+    <h2>Criar Conta</h2>
+    <p>Preencha seus dados para começar</p>
+
+    <!-- Alerta / Mensagem -->
+    <div class="mensagem" id="alertMsg">
+      <span id="alertText"></span>
+    </div>
+
+    <form id="cadastroForm" onsubmit="return handleCadastro(event);">
+
+      <label for="nome">Nome Completo</label>
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        placeholder="Digite seu nome completo"
+        required>
+
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Digite seu e-mail"
+        required>
+
+      <label for="telefone">Telefone</label>
+      <input
+        type="tel"
+        id="telefone"
+        name="telefone"
+        placeholder="(11) 99999-9999"
+        required>
+
+      <label for="senha">Senha</label>
+      <div class="password-field">
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="Crie uma senha"
+          required
+          oninput="checkPasswordStrength(this.value)">
+
+        <button
+          type="button"
+          class="password-toggle"
+          onclick="togglePassword('senha', this)">
+          Mostrar
+        </button>
+      </div>
+
+      <!-- Indicador de força de senha -->
+      <div class="password-strength">
+        <div class="strength-bar">
+          <div class="strength-fill" id="strengthFill"></div>
+        </div>
+        <span class="strength-label" id="strengthLabel"></span>
+      </div>
+
+      <label for="confirmarSenha">Confirmar Senha</label>
+      <div class="password-field">
+        <input
+          type="password"
+          id="confirmarSenha"
+          name="confirmarSenha"
+          placeholder="Repita sua senha"
+          required>
+
+        <button
+          type="button"
+          class="password-toggle"
+          onclick="togglePassword('confirmarSenha', this)">
+          Mostrar
+        </button>
+      </div>
+
+      <!-- Termos -->
+      <div class="terms-check">
+        <input type="checkbox" id="termos" required>
+        <label for="termos">
+          Li e aceito os <a href="#">Termos de Uso</a> e a <a href="#">Política de Privacidade</a>.
+        </label>
+      </div>
+
+      <button type="submit" id="cadastroBtn">Criar Conta</button>
+
+    </form>
+
+    <div class="extra-links">
+      Já possui uma conta? <a href="login.html">Entrar</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+function togglePassword(id,botao){
+
+const campo=document.getElementById(id);
+
+if(campo.type==="password"){
+
+campo.type="text";
+botao.textContent="Ocultar";
+
+}else{
+
+campo.type="password";
+botao.textContent="Mostrar";
+
+}
+
+}
+
+function checkPasswordStrength(password){
+
+const fill=document.getElementById("strengthFill");
+const label=document.getElementById("strengthLabel");
+
+fill.className="strength-fill";
+
+label.textContent="";
+
+let score=0;
+
+if(password.length>=6)score++;
+if(password.length>=10)score++;
+if(/[A-Z]/.test(password))score++;
+if(/[0-9]/.test(password))score++;
+if(/[^A-Za-z0-9]/.test(password))score++;
+
+if(password.length===0)return;
+
+if(score<=2){
+
+fill.classList.add("weak");
+label.textContent="Senha fraca";
+
+}else if(score<=3){
+
+fill.classList.add("medium");
+label.textContent="Senha média";
+
+}else{
+
+fill.classList.add("strong");
+label.textContent="Senha forte";
+
+}
+
+}
+
+function handleCadastro(event){
+
+event.preventDefault();
+
+const senha=document.getElementById("senha").value;
+
+const confirmar=document.getElementById("confirmarSenha").value;
+
+const termos=document.getElementById("termos").checked;
+
+const alerta=document.getElementById("alertMsg");
+
+const texto=document.getElementById("alertText");
+
+const botao=document.getElementById("cadastroBtn");
+
+if(senha!==confirmar){
+
+alerta.className="alert-msg error show";
+
+texto.textContent="As senhas não coincidem.";
+
+return false;
+
+}
+
+if(!termos){
+
+alerta.className="alert-msg error show";
+
+texto.textContent="Aceite os termos.";
+
+return false;
+
+}
+
+botao.textContent="Criando conta...";
+
+botao.classList.add("loading");
+
+setTimeout(()=>{
+
+botao.classList.remove("loading");
+
+botao.textContent="Criar Conta";
+
+alerta.className="alert-msg success show";
+
+texto.textContent="Cadastro realizado com sucesso!";
+
+setTimeout(()=>{
+
+window.location.href="login.html";
+
+},2000);
+
+},1500);
+
+return false;
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+/*CSS LOGIN */
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f8;
+    color:#333;
+}
+
+.navbar{
+    background:#280166;
+    color:white;
+    font-weight: bold;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#d9e8ff;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:85vh;
+}
+
+.login-card{
+    width:380px;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.login-card h2{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.login-card p{
+    text-align:center;
+    margin-bottom:20px;
+    color:#666;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin:8px 0 5px;
+    font-weight:bold;
+}
+
+input{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-bottom:15px;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#0f4c81;
+}
+
+button{
+    background:#d6a314;
+    color:white;
+    border:none;
+    padding:13px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    background:#916e0e;
+}
+
+.extra-links{
+    margin-top:20px;
+    text-align:center;
+}
+
+.extra-links a{
+    color:#d6a314;
+    text-decoration:none;
+}
+
+.extra-links a:hover{
+    text-decoration:underline;
+}
+
+hr{
+    margin:25px 0;
+}
+
+.contatos{
+    text-align:center;
+}
+
+.contatos h3{
+    margin-bottom:10px;
+}
+
+.contatos p{
+    margin:5px 0;
+}
+
+/*CSS ESQUECEU SENHA */
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f4f6f8;
+}
+
+.card{
+    width:400px;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.card p{
+    text-align:center;
+    margin-bottom:25px;
+    color:#666;
+}
+
+.card label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.card input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.card button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#d6a314;
+    color:white;
+    font-weight: bold;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.card button:hover{
+    background:#916e0e;
+}
+
+.mensagem{
+    display:none;
+    margin-top:20px;
+    padding:12px;
+    text-align:center;
+    background:#d4edda;
+    color:#155724;
+    border:1px solid #c3e6cb;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.voltar{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+    color:#d6a314;
+    font-weight:bold;
+}
+
+/*cadastro*/
+/* Ajuste para o campo de senha com botão embutido */
+.password-field {
+  position: relative;
+  width: 100%;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 80px; /* Garante espaço para o botão */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 8px;
+  top: 38%;
+  transform: translateY(-50%);
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+  width: auto !important;
+  background: #666 !important;
+}
+
+.password-toggle:hover {
+  background: #444 !important;
+}
+
+/* Indicador de Força de Senha */
+.password-strength {
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.strength-bar {
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+.strength-label {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Checkbox de Termos */
+.terms-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.terms-check input {
+  width: auto !important;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+}
+
+.terms-check label {
+  font-weight: normal !important;
+  font-size: 13px;
+  margin: 0 !important;
+}
+
+.terms-check a {
+  color: #d6a314;
+  text-decoration: none;
+}
+
+.terms-check a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,623 @@
+/* =====================================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS (TEMA NOVO)
+===================================================== */
+:root {
+    --purple: #6a1b9a;
+    --purple-light: #f6ebff;
+    --purple-hover: #5b1385;
+    --orange: #ff7a00;
+    --orange-hover: #e06c00;
+    --bg: #f8f1ff;
+    --light: #fff8f2;
+    --text: #2f213d;
+    --muted: #6a5b78;
+    --white: #ffffff;
+    --border-color: #ead9ff;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--light) 100%);
+    color: var(--text);
+}
+
+/* =====================================================
+   CORREÇÃO DEFINITIVA DO HEADER / NAVBAR
+===================================================== */
+
+/* 1. Trava o container principal */
+header, nav {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 12px 30px !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(106, 27, 154, 0.08) !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. FORÇA A LOGO A ENCOLHER (Resolve o gigante na tela) */
+#logo, .logo, header img, nav img {
+    width: 90px !important;       /* Largura fixa controlada */
+    height: auto !important;      /* Mantém a proporção */
+    max-height: 50px !important;  /* Não deixa estourar a altura */
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* 3. Menu de Links Alinhado e Espaçado */
+ul, .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 25px !important;         /* Espaço entre cada link */
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+ul a, .nav-links a {
+    text-decoration: none !important;
+    color: #2f213d !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    white-space: nowrap !important; /* Impede o texto de quebrar linha */
+    transition: color 0.2s !important;
+}
+
+ul a:hover, .nav-links a:hover {
+    color: #ff7a00 !important;
+}
+
+/* 4. Barra de Pesquisa Lado a Lado (Pílula) */
+.pesquisa {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.form_pesquisa {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 260px !important;
+    height: 40px !important;
+    border: 1px solid #e3d7f2 !important;
+    border-radius: 999px !important;
+    padding: 2px 4px 2px 14px !important;
+    background: #fcf7ff !important;
+    box-sizing: border-box !important;
+}
+
+.input_pesquisa {
+    flex: 1 !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    font-size: 14px !important;
+    color: #2f213d !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.pesquisa_foto {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: none !important;
+    cursor: pointer !important;
+    border-radius: 999px !important;
+    padding: 0 14px !important;
+    height: 100% !important;
+    background: #ff7a00 !important;
+    color: white !important;
+    margin: 0 !important;
+    transition: background 0.2s !important;
+}
+
+.pesquisa_foto:hover {
+    background: #e06c00 !important;
+}
+
+/* =====================================================
+   3. LOGIN, CADASTRO E ESQUECEU SENHA (ESTRUTURA MANTIDA)
+===================================================== */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+}
+
+.login-card, .card {
+    width: 380px;
+    background: var(--white);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 12px 25px rgba(52, 20, 84, 0.08);
+    border: 1px solid var(--border-color);
+}
+
+.login-card h2, .card h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--purple);
+}
+
+.login-card p, .card p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--muted);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, .card label {
+    margin: 8px 0 5px;
+    font-weight: bold;
+    color: var(--text);
+    display: block;
+}
+
+input, .card input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e3d7f2;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    background: #fcf7ff;
+    color: var(--text);
+}
+
+input:focus, .card input:focus {
+    outline: none;
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.1);
+}
+
+button, .card button {
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 100%;
+}
+
+button:hover, .card button:hover {
+    background: var(--orange-hover);
+}
+
+.extra-links {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--muted);
+}
+
+.extra-links a, .voltar {
+    color: var(--purple);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.extra-links a:hover, .voltar:hover {
+    text-decoration: underline;
+    color: var(--orange);
+}
+
+hr {
+    margin: 25px 0;
+    border: 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.mensagem {
+    display: none;
+    margin-top: 20px;
+    padding: 12px;
+    text-align: center;
+    background: #f3e4ff;
+    color: var(--purple);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+/* Campos Específicos de Senha e Termos */
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    padding-right: 80px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 8px;
+    top: 38%;
+    transform: translateY(-50%);
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    width: auto !important;
+    background: var(--purple-light) !important;
+    color: var(--purple) !important;
+    border-radius: 999px !important;
+}
+
+.password-toggle:hover {
+    background: var(--purple) !important;
+    color: white !important;
+}
+
+.password-strength {
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+.strength-bar {
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.strength-label {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.terms-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.terms-check input {
+    width: auto !important;
+    margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.terms-check label {
+    font-weight: normal !important;
+    font-size: 13px;
+    margin: 0 !important;
+}
+
+.terms-check a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+.terms-check a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+   4. HERO, CARDS E PROFISSIONAIS / MARKETPLACE
+===================================================== */
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: var(--purple);
+}
+
+.hero p {
+    color: var(--muted);
+    margin-bottom: 35px;
+}
+
+.hero .pesquisa input {
+    width: 400px;
+    padding: 15px;
+    border-radius: 999px;
+    border: 1px solid #e3d7f2;
+    background: white;
+}
+
+.hero .pesquisa button {
+    padding: 15px 25px;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.profissionais, .produtos, .cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.profissional_card, .produto_card, .card {
+    background: var(--white);
+    width: 250px;
+    min-width: 230px;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 12px 25px rgba(52, 20, 84, 0.08);
+    border: 1px solid var(--border-color);
+    transition: 0.3s;
+}
+
+.profissional_card:hover, .produto_card:hover, .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 30px rgba(52, 20, 84, 0.15);
+}
+
+.profissional_card img, .card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--purple-light);
+}
+
+.produto_card img {
+    width: 100%;
+    height: 150px;
+    border-radius: 14px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.profissional_card h2, .produto_card h2, .card h2 {
+    font-size: 19px;
+    margin-bottom: 8px;
+    color: var(--purple);
+}
+
+.profissional_card p, .produto_card p, .card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.card span {
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.produto_card button, .card button {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: var(--orange);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.produto_card button:hover, .card button:hover {
+    background: var(--orange-hover);
+}
+
+/* =====================================================
+   5. SEÇÃO SOBRE NÓS
+===================================================== */
+#Sobre, .sobre {
+    width: 100%;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--purple, #6a1b9a) 0%, #8e3dcf 100%);
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+#Sobre h2, .sobre h2 {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Container que coloca Texto e Imagem lado a lado */
+.sobre-conteudo {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap; /* Garante responsividade em telas menores */
+}
+
+#Sobre p, .sobre p {
+    flex: 1;
+    min-width: 300px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f7eaff;
+    margin: 0;
+}
+
+#Sobre img, .sobre img {
+    flex: 1;
+    min-width: 280px;
+    max-width: 480px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    background-color: #e3d7f2; /* Cor de fundo caso a imagem falhe */
+}
+
+/* =====================================================
+   6. PÁGINA DE PERFIL E DETALHES
+===================================================== */
+.perfil {
+    width: 90%;
+    max-width: 1180px;
+    margin: 50px auto;
+}
+
+.perfil-topo {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.perfil-topo img {
+    width: 300px;
+    border-radius: 24px;
+    box-shadow: 0 12px 25px rgba(52, 20, 84, 0.12);
+}
+
+.informacoes {
+    flex: 1;
+}
+
+.informacoes h1 {
+    font-size: 42px;
+    color: var(--purple);
+}
+
+.informacoes h2 {
+    color: var(--orange);
+    margin: 10px 0;
+}
+
+.avaliacao {
+    font-size: 22px;
+    color: var(--orange);
+    margin: 20px 0;
+}
+
+.informacoes button, .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 999px;
+    background: var(--orange);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.informacoes button:hover, .btn:hover {
+    background: var(--orange-hover);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.grid div, .comentario {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(52, 20, 84, 0.06);
+    border: 1px solid var(--border-color);
+}
+
+.descricao p {
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tags span {
+    background: var(--purple-light);
+    color: var(--purple);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: bold;
+}
+
+.fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.fotos img {
+    width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+/* =====================================================
+   7. FOOTER
+===================================================== */
+footer {
+    width: 100%;
+    padding: 30px;
+    background: var(--purple);
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* =====================================================
+   8. RESPONSIVIDADE
+===================================================== */
+@media (max-width: 900px) {
+    header, nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #Sobre p, #Sobre img {
+        width: 100%;
+    }
+
+    .hero .pesquisa input {
+        width: 90%;
+    }
+}
